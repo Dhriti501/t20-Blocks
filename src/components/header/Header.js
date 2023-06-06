@@ -9,14 +9,15 @@ const Header = () => {
     return (
         <AppBar position="static" className="navbarStyle" sx={{ backgroundColor: "#0f0b2c"}}>
             <Toolbar>
+
                 <Link color="inherit" to="http://localhost:3000/">
                     <Button
                         className="buttonStyle"
                         color="inherit"
                         sx={{
                             fontSize: "25px",
-                            marginTop: "25px",
-                            marginLeft: "20px",
+                            marginTop: "12px",
+                            marginLeft: "50px",
                             backgroundColor: "#0f0b2c",
                             color: "white",
                         }}
@@ -24,20 +25,51 @@ const Header = () => {
                         T-20 Blocks
                     </Button>
                 </Link>
-                <Link color="inherit" to="http://localhost:3000/create-team" style={{ marginLeft: "130vh",}}>
+                <Link color="inherit" to="http://localhost:3000/" style={{ marginLeft: "52vw"}}>
                     <Button
                         className="buttonStyle"
                         color="inherit"
                         sx={{
                             fontSize: "20px",
-                            marginTop: "25px",
+                            marginTop: "12px",
+                            backgroundColor: "#0f0b2c",
+                            color: "white",
+                           
+                        }}
+                    >
+                        Home
+                    </Button>
+                </Link>
+                <Link color="inherit" to="http://localhost:3000/create-team" >
+                    <Button
+                        className="buttonStyle"
+                        color="inherit"
+                        sx={{
+                            fontSize: "20px",
+                            marginTop: "12px",
                             marginLeft: "20px",
                             backgroundColor: "#0f0b2c",
                             color: "white",
                            
                         }}
                     >
-                        Create Team
+                        Create
+                    </Button>
+                </Link>
+                <Link color="inherit" to="http://localhost:3000/predict-player-rating" >
+                    <Button
+                        className="buttonStyle"
+                        color="inherit"
+                        sx={{
+                            fontSize: "20px",
+                            marginTop: "12px",
+                            marginLeft: "20px",
+                            backgroundColor: "#0f0b2c",
+                            color: "white",
+                           
+                        }}
+                    >
+                        Predict
                     </Button>
                 </Link>
             </Toolbar>

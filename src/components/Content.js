@@ -162,6 +162,7 @@ const Content = ({ activeCategory }) => {
                                             },
                                             padding: "10px",
                                             margin: "15px",
+                                            borderRadius:"10px"
                                         }}
                                     >
                                         Add
@@ -180,6 +181,8 @@ const Content = ({ activeCategory }) => {
                                         },
                                         padding: "10px",
                                         margin: "15px",
+                                        borderRadius:"10px"
+
                                     }}
                                 >
                                     Details

@@ -21,9 +21,12 @@ const Navbar = ({ activeCategory, onCategoryClick }) => {
                             backgroundColor: "#008AFC",
                             color: "white",
                         },
-                        padding: "20px",
-                        marginLeft: "5px",
-                        width: "190px",
+                        padding: "12px 3px",
+                        marginLeft: "25px",
+                        width: "140px",
+                        borderRadius:"10px",
+                        fontSize:"17px",
+                        textShadow:"0.7px 0.7px #008AFC"
                     }}
                 >
                     {category}

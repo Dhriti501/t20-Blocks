@@ -81,22 +81,22 @@ const MyForm = () => {
                 }}
             >
                 <Box sx={{ color: "#008afc", width: "60vh"}}>
-                    <h1 style={{ fontSize: "60px" }}>Predicting Rating</h1>
-                    <h1>{showText && <p>Rating:{ rating}</p>}</h1>
+                    <h1 style={{ fontSize: "60px", textAlign:"center", textShadow:"2px 2px white"}}>Predict Rating with custom values</h1>
+                    <h1>{showText && <p>Rating:{rating}</p>}</h1>
                 </Box>
                 <form
                     onSubmit={handleSubmit}
                     style={{
                         backgroundColor: "#ffffff",
-                        width: "80vh",
-                        paddingLeft: "60px",
-                        paddingRight: "60px",
-                        borderRadius: "10px",
-                        margin: "2vh",
+                        width: "65vh",
+                        padding:"0 60px",
+                        borderRadius: "25px",
+                        marginTop:"20px",
+                        marginRight:"-40px"
                     }}
                 >
-                    <div style={{ display: "flex", padding: "20px" }}>
-                        <div style={{ margin: "40px" }}>
+                    <div style={{ display: "flex", padding: "20px 20px 75px" ,}}>
+                        <div style={{marginRight : "50px"}}>
 
                             <TextField
                                 label="Player Name"
@@ -144,7 +144,7 @@ const MyForm = () => {
                                 margin="normal"
                             />
                         </div>
-                        <div style={{ padding: "40px" }}>
+                        <div >
                             <TextField
                                 label="Balls Faced"
                                 name="ballsFaced"
@@ -199,10 +199,16 @@ const MyForm = () => {
                         variant="contained"
                         color="primary"
                         type="submit"
-                        sx={{ marginBottom: "20px", marginLeft: "60px" }}
+                        sx={{
+                             margin :"-80px 0 0 140px",
+                             width:"44%",
+                             height:"50px",
+                             borderRadius:"10px"
+                         }}
                         onClick={handleSubmit}
+                        
                     >
-                        Submit
+                        PREDICT
                     </Button>
                 </form>
             </Container>
