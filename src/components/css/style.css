@@ -38,20 +38,16 @@ body {
 }
 
 .popup-box {
-    margin: 30vh;
-    width: 10vh;
+    margin: 10vh;
+    width: 50vh;
+    height: 60vh;
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-
-.popup-button {
-    display: inline;
-
-}
 
 .centered {
     display: flex;
