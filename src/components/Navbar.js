@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 
 const Navbar = ({ activeCategory, onCategoryClick }) => {
 
-    const categories = ["batsman", "bowler"];
+    const categories = ["BATSMAN", "BOWLER"];
 
     return (
         <div className="navbar">

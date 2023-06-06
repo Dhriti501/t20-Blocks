@@ -110,3 +110,7 @@ body {
     justify-content: "space-between";
     padding: "7px";
 }
+
+.full-width-button {
+    width: 100%;
+}

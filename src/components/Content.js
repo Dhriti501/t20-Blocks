@@ -1,215 +1,75 @@
-import React, { useState } from "react";
-import {
-    List,
-    ListItem,
-    ListItemAvatar,
-    Avatar,
-    ListItemText,
-    Button,
-    Typography,
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
-} from "@mui/material";
-import ipl from "./img/ipl.png";
+import React, { useState } from 'react'
+import Player from './Player'
+import { Typography, List, Button, ListItemText, ListItem, ListItemAvatar, Avatar, Dialog ,DialogActions,DialogTitle,DialogContent} from '@mui/material'
 
 
-const Content = ({ activeCategory }) => {
-    const playerMap = {
-        batsman: [
-            { name: "Player 1", details: "Player 1 details", rating: 4.5 },
-            { name: "Player 2", details: "Player 2 details", rating: 4.2 },
-            { name: "Player 3", details: "Player 3 details", rating: 4.8 },
-            { name: "Player 4", details: "Player 4 details", rating: 4.3 },
-            { name: "Player 5", details: "Player 5 details", rating: 4.1 },
-            { name: "Player 6", details: "Player 6 details", rating: 4.6 },
-            { name: "Player 7", details: "Player 7 details", rating: 4.4 },
-            { name: "Player 8", details: "Player 8 details", rating: 4.9 },
-            { name: "Player 9", details: "Player 9 details", rating: 4.7 },
-        ],
-        bowler: [
-            { name: "Player A", details: "Player A details", rating: 4.6 },
-            { name: "Player B", details: "Player B details", rating: 4.4 },
-            { name: "Player C", details: "Player C details", rating: 4.2 },
-            { name: "Player D", details: "Player D details", rating: 4.8 },
-            { name: "Player E", details: "Player E details", rating: 4.7 },
-            { name: "Player F", details: "Player F details", rating: 4.5 },
-            { name: "Player G", details: "Player G details", rating: 4.3 },
-            { name: "Player H", details: "Player H details", rating: 4.1 },
-            { name: "Player I", details: "Player I details", rating: 4.9 },
-        ],
-        wicketkeeper: [
-            { name: "Player X", details: "Player X details", rating: 4.7 },
-            { name: "Player Y", details: "Player Y details", rating: 4.1 },
-            { name: "Player Z", details: "Player Z details", rating: 4.5 },
-            { name: "Player M", details: "Player M details", rating: 4.3 },
-            { name: "Player N", details: "Player N details", rating: 4.2 },
-            { name: "Player O", details: "Player O details", rating: 4.8 },
-            { name: "Player P", details: "Player P details", rating: 4.6 },
-            { name: "Player Q", details: "Player Q details", rating: 4.4 },
-            { name: "Player R", details: "Player R details", rating: 4.9 },
-        ],
-        "all rounder": [
-            { name: "Player I", details: "Player I details", rating: 4.3 },
-            { name: "Player II", details: "Player II details", rating: 4.9 },
-            { name: "Player III", details: "Player III details", rating: 4.7 },
-            { name: "Player IV", details: "Player IV details", rating: 4.6 },
-            { name: "Player V", details: "Player V details", rating: 4.4 },
-            { name: "Player VI", details: "Player VI details", rating: 4.8 },
-            { name: "Player VII", details: "Player VII details", rating: 4.5 },
-            {
-                name: "Player VIII",
-                details: "Player VIII details",
-                rating: 4.2,
-            },
-            { name: "Player IX", details: "Player IX details", rating: 4.1 },
-        ],
-    };
+const Content = ({ activeCategory, batsmanData }) => {
+    
 
-    //avatars of players
-    const avatarImages = {
-        batsman: {
-            "Player 1": ipl,
-            "Player 2": "batsman2.jpg",
-            "Player 3": "batsman2.jpg",
-            "Player 4": "batsman2.jpg",
-            "Player 5": "batsman2.jpg",
-            "Player 6": "batsman2.jpg",
-            "Player 7": "batsman2.jpg",
-        },
-        bowler: {
-            "Player A": "bowlerA.jpg",
-            "Player B": "bowlerB.jpg",
-        },
-        wicketkeeper: {
-            "Player X": "wicketkeeperX.jpg",
-            "Player Y": "wicketkeeperY.jpg",
-            // Add more images for wicketkeeper players here...
-        },
-        "all rounder": {
-            "Player I": "allrounderI.jpg",
-            "Player II": "allrounderII.jpg",
-        },
-    };
+    const [selectedPlayers, setSelectedPlayers] = useState([])
+    const [selectedPlayerDetails, setSelectedPlayerDetails] = useState(null)
 
-    const [selectedPlayers, setSelectedPlayers] = useState([]);
-    const [selectedPlayerDetails, setSelectedPlayerDetails] = useState(null);
-
-    //only 11 players can be added
+    
     const handleAddClick = (player) => {
+
         if (
             selectedPlayers.length < 11 &&
             !selectedPlayers.some(
-                (selectedPlayer) => selectedPlayer.name === player.name
+                (selectedPlayer) => selectedPlayer === player
             )
         ) {
             setSelectedPlayers((prevPlayers) => [...prevPlayers, player]);
         }
-    };
+            
+    }
 
-    //delete the player from the selected list
     const handleDeleteClick = (player) => {
-        setSelectedPlayers((prevPlayers) =>
-            prevPlayers.filter((p) => p !== player)
-        );
-    };
+        console.log(player, " Deleted");
+
+        const updatedArray = selectedPlayers.filter((item) => item !== player);
+        setSelectedPlayers(updatedArray);
+
+
+    }
 
     const handlePlayerClick = (player) => {
-        setSelectedPlayerDetails(player);
-    };
+        setSelectedPlayerDetails(player)
+    }
 
     const handleCloseDetails = () => {
-        setSelectedPlayerDetails(null);
-    };
+        setSelectedPlayerDetails(null)
+    }
 
     return (
         <div className="content">
-            <div className="players">
-                <Typography variant="h6">{activeCategory}</Typography>
-                <List>
-                    {playerMap[activeCategory].map((player, index) => (
-                        <React.Fragment key={player.name}>
-                            <ListItem>
-                                <ListItemAvatar className="CreateTeamListAvatar">
-                                    <Avatar
-                                        alt={player.name}
-                                        src={
-                                            avatarImages[activeCategory][
-                                                player.name
-                                            ]
-                                        }
-                                        sx={{ width: 80, height: 80 }}
-                                    />
-                                </ListItemAvatar>
-                                <ListItemText
-                                    className="CreateTeamListText"
-                                    primary={player.name}
-                                    secondary={`Rating: ${player.rating}`}
-                                />
-                                {!selectedPlayers.includes(player) && (
-                                    <Button
-                                        onClick={() => handleAddClick(player)}
-                                        disabled={selectedPlayers.length === 11}
-                                        sx={{
-                                            fontSize: 14,
-                                            padding: "5px 10px",
-                                            color: "white",
-                                            backgroundColor: "#0F0B2C",
-                                            "&:hover": {
-                                                backgroundColor: "#008AFC",
-                                                color: "white",
-                                            },
-                                            padding: "10px",
-                                            margin: "15px",
-                                        }}
-                                    >
-                                        Add
-                                    </Button>
-                                )}
-                                <Button
-                                    onClick={() => handlePlayerClick(player)}
-                                    sx={{
-                                        fontSize: 14,
-                                        padding: "5px 10px",
-                                        color: "white",
-                                        backgroundColor: "#0F0B2C",
-                                        "&:hover": {
-                                            backgroundColor: "#008AFC",
-                                            color: "white",
-                                        },
-                                        padding: "10px",
-                                        margin: "15px",
-                                    }}
-                                >
-                                    Details
-                                </Button>
-                            </ListItem>
-                            {index !== playerMap[activeCategory].length - 1 && (
-                                <hr />
-                            )}
-                        </React.Fragment>
-                    ))}
-                </List>
-            </div>
-            {selectedPlayers.length > 0 && (
-                <div className="selected-players">
-                    <Typography variant="h6">Selected Players:</Typography>
+                <div className="players">
+                    <Typography variant="h6">{activeCategory}</Typography>
                     <List>
-                        {selectedPlayers.map((player, index) => (
-                            <div key={player.name}>
+                    {batsmanData.map((player) => <Player name={player[1]} rating={Math.round(player[21] * 100) / 100} handleAddClick={handleAddClick} selectedPlayers={selectedPlayers} handlePlayerClick={handlePlayerClick} />)}
+                </List>
+                
+               
+            </div>
+            
+            {selectedPlayers.length > 0 &&
+                <div className="selected-players">
+                    <Typography variant="h6">SELECTED PLAYERS:</Typography>
+                    <List>
+                        {selectedPlayers.map((player) => (
+                            <div key={player}>
                                 <ListItem>
                                     <ListItemAvatar>
                                         <Avatar
-                                            alt={player.name}
-                                            src={`avatar-${player.name}`}
+                                            alt={player}
+                                            src=""
                                         />
                                     </ListItemAvatar>
                                     <ListItemText
                                         sx={{ fontSize: "20px" }}
-                                        primary={player.name}
+                                        primary={player}
                                     />
                                     <Button
+                                        onClick={() => handleDeleteClick(player)}
                                         sx={{
                                             fontSize: 14,
                                             padding: "5px 10px",
@@ -222,31 +82,45 @@ const Content = ({ activeCategory }) => {
                                             padding: "10px",
                                             margin: "15px",
                                         }}
-                                        onClick={() =>
-                                            handleDeleteClick(player)
-                                        }
+                                       
                                     >
                                         Delete
                                     </Button>
                                 </ListItem>
-                                {index !== selectedPlayers.length - 1 && <hr />}
+                            
                             </div>
                         ))}
                     </List>
+                    {selectedPlayers.length==11 && <Button
+                                variant="contained"
+                                color="primary"
+                                className="full-width-button"
+                                sx={{
+                                    marginTop: "25px",
+                                    backgroundColor: "#008afc",
+                                    "&:hover": {
+                                        backgroundColor: "white",
+                                        color: "black",
+                                    },
+                                }}
+                            >
+                               Check Your Team's Chemistry
+                    </Button>}
                 </div>
-            )}
+            }
 
             <Dialog open={!!selectedPlayerDetails} onClose={handleCloseDetails}>
-                <DialogTitle>{selectedPlayerDetails?.name} Details</DialogTitle>
+                <DialogTitle>{selectedPlayerDetails} Details</DialogTitle>
                 <DialogContent>
-                    <Typography>{selectedPlayerDetails?.details}</Typography>
+                    <Typography>{selectedPlayerDetails}</Typography>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseDetails}>Close</Button>
                 </DialogActions>
             </Dialog>
+
         </div>
-    );
-};
+  )
+}
 
 export default Content;

@@ -9,7 +9,7 @@ import Navbar from "./Navbar";
 
 const Team_Selection = () => {
 
-    const [activeCategory, setActiveCategory] = useState("batsman");
+    const [activeCategory, setActiveCategory] = useState("BATSMAN");
     const [batsmanData, setBatsmanData] = useState([]);
 
     //displaying csv data
@@ -17,8 +17,12 @@ const Team_Selection = () => {
         const papaConfig = {
             complete: (results, file) => {
             //   console.log('Parsing complete:', results, file);
-              setBatsmanData(results.data);
+                
+                // const slicedArray = originalArray.slice(0, 100);
+              setBatsmanData(results.data.slice(1,101));
               console.log(results.data)
+              console.log(results.data.slice(1,101));
+                
             },
             download: true,
             error: (error, file) => {
@@ -41,7 +45,7 @@ const Team_Selection = () => {
                 activeCategory={activeCategory}
                 onCategoryClick={handleCategoryClick}
             />
-            <Content activeCategory={activeCategory} data={batsmanData} />
+            <Content activeCategory={activeCategory} batsmanData={batsmanData} />
         </div>
     );
 };
