@@ -53,7 +53,7 @@ const MyForm = () => {
         
         e.preventDefault();
         
-        fetch(`http://127.0.0.1:8000/view-team/?matches=${matches}&innings=${innings}&runs=${runs}&highscore=${highScore}&avg=${average}&ballsfaced=${ballsFaced}&strikerate=${strikeRate}&hundreds=${hundreds}&fifties=${fifties}&fours=${fours}&sixes=${sixes}`)
+        fetch(`http://127.0.0.1:7000/view-team/?matches=${matches}&innings=${innings}&runs=${runs}&highscore=${highScore}&avg=${average}&ballsfaced=${ballsFaced}&strikerate=${strikeRate}&hundreds=${hundreds}&fifties=${fifties}&fours=${fours}&sixes=${sixes}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -82,7 +82,7 @@ const MyForm = () => {
             >
                 <Box sx={{ color: "#008afc", width: "60vh"}}>
                     <h1 style={{ fontSize: "60px", textAlign:"center", textShadow:"2px 2px white"}}>Predict Rating with custom values</h1>
-                    <h1>{showText && <p>Rating:{rating}</p>}</h1>
+                    <h1 style={{ fontSize: "40px", textAlign:"center", textShadow:"2px 2px white" ,color:"white"}}>{showText && <p>Rating: {rating}</p>}</h1>
                 </Box>
                 <form
                     onSubmit={handleSubmit}
