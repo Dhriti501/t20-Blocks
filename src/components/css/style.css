@@ -48,7 +48,6 @@ body {
     text-align: center;
 }
 
-
 .centered {
     display: flex;
     flex-direction: column;
@@ -102,4 +101,12 @@ body {
 
 .CreateTeamListText {
     padding: 30px;
+}
+
+.containerStyle {
+    display: "flex";
+    flex-direction: "row";
+    align-items: "center";
+    justify-content: "space-between";
+    padding: "7px";
 }
