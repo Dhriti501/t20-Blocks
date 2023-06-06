@@ -1,0 +1,96 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #0f0b2c;
+}
+
+.pageStyle {
+    background-color: #0f0b2c;
+    min-height: 100vh;
+    padding: 1vh 1vw;
+    color: white;
+}
+
+.navbarStyle {
+    background-color: #0f0b2c;
+    box-shadow: none;
+}
+
+.lineStyle {
+    border: none;
+    height: 1px;
+    background-color: #221f3e;
+}
+
+.companyNameStyle {
+    flex-grow: 1;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+}
+
+.HomePageContent {
+    display: flex;
+    margin-top: 5vh;
+}
+
+.leftContainer {
+    padding: 70px;
+    margin-top: 80px;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigHeadingStyle {
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.smallTextStyle {
+    font-size: 20px;
+}
+
+.smallTextStyleblue {
+    color: #008afc;
+    font-size: 30px;
+    padding-top: 15px;
+}
+
+.content {
+    padding-left: 53px;
+    padding-top: 20px;
+    display: flex;
+    /* color: white; */
+    
+}
+
+.players{
+    background-color: white;
+    padding: 50px;
+    width: 88vh;
+    border-radius: 10px;
+}
+
+.navbar{
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+.selected-players {
+    margin-left: auto;
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    width: 50vh;
+    margin-right: 90px;
+}
+
+.CreateTeamListText{
+    padding: 30px;
+    
+}
+
