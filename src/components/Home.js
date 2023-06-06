@@ -1,6 +1,5 @@
 import homeImage from "./img/home.png";
 import React from "react";
-import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import "./css/style.css";
 import Header from "./header/Header";

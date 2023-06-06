@@ -7,11 +7,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <AppBar
-            position="static"
-            className="navbarStyle"
-            sx={{ backgroundColor: "#0f0b2c" }}
-        >
+        <AppBar position="static" className="navbarStyle" sx={{ backgroundColor: "#0f0b2c"}}>
             <Toolbar>
                 <Link color="inherit" to="http://localhost:3000/">
                     <Button
