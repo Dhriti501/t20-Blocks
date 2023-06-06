@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Papa from 'papaparse';
+import { readString } from 'react-papaparse';
+import siteListCSV from '../data/t20_data_rating.csv';
+// import { CSVReader } from 'react-papaparse';
+// import csvFile from '../data/t20_data_rating.csv';
+
 import {
     List,
     ListItem,
@@ -18,10 +24,12 @@ import {
 } from "@mui/material";
 import Header from "./header/Header";
 import ipl from "./img/ipl.png";
+import { useEffect } from "react";
 
 //tabs button(batsman,bowler,wicketKeeper, AllRounder)
 const NavBar = ({ activeCategory, onCategoryClick }) => {
-    const categories = ["batsman", "bowler", "wicketkeeper", "all rounder"];
+    const categories = ["batsman", "bowler"];
+    // const categories = ["batsman", "bowler", "wicketkeeper", "all rounder"];
 
     return (
         <div className="navbar">
@@ -495,7 +503,27 @@ const Content = ({ activeCategory }) => {
 };
 
 const Team_Selection = () => {
+
     const [activeCategory, setActiveCategory] = useState("batsman");
+    const [batsmanData, setBatsmanData] = useState([]);
+
+    //displaying csv data
+    useEffect(() =>{
+        const papaConfig = {
+            complete: (results, file) => {
+            //   console.log('Parsing complete:', results, file);
+              setBatsmanData(results.data);
+              console.log(batsmanData)
+            },
+            download: true,
+            error: (error, file) => {
+              console.log('Error while parsing:', error, file);
+            },
+          };
+          readString(siteListCSV, papaConfig);
+    },[]);
+
+
 
     const handleCategoryClick = (category) => {
         setActiveCategory(category);
@@ -509,6 +537,9 @@ const Team_Selection = () => {
                 onCategoryClick={handleCategoryClick}
             />
             <Content activeCategory={activeCategory} />
+            <div>
+                uhbuhuhuh
+            </div>
         </div>
     );
 };
