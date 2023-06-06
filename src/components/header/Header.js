@@ -16,7 +16,7 @@ const Header = () => {
                     <Button className="buttonStyle"
                     color="inherit"
                     sx={{
-                        marginTop: "25px",
+                        // marginTop: "25px",
                         marginLeft: "20px",
                         backgroundColor: "#0f0b2c",
                         color: "white",
@@ -28,7 +28,7 @@ const Header = () => {
                     <Button className="buttonStyle"
                     color="inherit"
                     sx={{
-                        marginTop: "25px",
+                        // marginTop: "25px",
                         marginLeft: "20px",
                         backgroundColor: "#0f0b2c",
                         color: "white",

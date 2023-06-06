@@ -3,7 +3,7 @@ import Header from "./header/Header";
 const View_Team = () => {
     return (
         <div className="view-team">
-            <Header />
+         <Header />
             <center>
                 <h1 style={{color: 'white', fontSize: '50px'}}>
                     View Team Route
