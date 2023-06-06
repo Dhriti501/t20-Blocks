@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Papa from 'papaparse';
 import { readString } from 'react-papaparse';
 import siteListCSV from '../data/t20_data_rating.csv';
-// import { CSVReader } from 'react-papaparse';
-// import csvFile from '../data/t20_data_rating.csv';
-
 import {
     List,
     ListItem,
@@ -511,9 +504,8 @@ const Team_Selection = () => {
     useEffect(() =>{
         const papaConfig = {
             complete: (results, file) => {
-            //   console.log('Parsing complete:', results, file);
-              setBatsmanData(results.data);
-              console.log(batsmanData)
+              console.log('Parsing complete:', results, file);
+
             },
             download: true,
             error: (error, file) => {
