@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import {
     List,
     ListItem,
@@ -37,7 +40,8 @@ const NavBar = ({ activeCategory, onCategoryClick }) => {
                         padding: "20px",
                         marginLeft: "5px",
                         width: "190px",
-                    }}>
+                    }}
+                >
                     {category}
                 </Button>
             ))}
@@ -264,13 +268,23 @@ const Content = ({ activeCategory }) => {
                 </div>
             )}
 
-            <Dialog open={!!selectedPlayerDetails} onClose={handleCloseDetails}>
-                <DialogTitle>{selectedPlayerDetails?.name} Details</DialogTitle>
-                <DialogContent>
+            <Dialog open={!!selectedPlayerDetails} onClose={handleCloseDetails} sx={{minWidth:"70px"}}>
+                <DialogTitle >{selectedPlayerDetails?.name} Details</DialogTitle>
+                <DialogContent className="popup-box">
+                    <Avatar
+                        src={selectedPlayerDetails?.avatarUrl}
+                        alt={selectedPlayerDetails?.name}
+                    />
                     <Typography>{selectedPlayerDetails?.details}</Typography>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleCloseDetails}>Close</Button>
+                    <Button
+                        className="popup-button"
+                        onClick={handleCloseDetails}
+                        // sx={{ marginRight: "33vh" }}
+                    >
+                        Close
+                    </Button>
                 </DialogActions>
             </Dialog>
         </div>

@@ -7,32 +7,40 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <AppBar position="static" className="navbarStyle" sx={{ backgroundColor: "#0f0b2c"}}>
+        <AppBar
+            position="static"
+            className="navbarStyle"
+            sx={{ backgroundColor: "#0f0b2c" }}
+        >
             <Toolbar>
-                <Typography variant="h6" component="div" className="companyNameStyle">
-                    T-20 Blocks
-                </Typography>
-                <Link color="inherit" to='http://localhost:3000/'>
-                    <Button className="buttonStyle"
-                    color="inherit"
-                    sx={{
-                        marginTop: "25px",
-                        marginLeft: "20px",
-                        backgroundColor: "#0f0b2c",
-                        color: "white",
-                    }}>
-                        Home
+                <Link color="inherit" to="http://localhost:3000/">
+                    <Button
+                        className="buttonStyle"
+                        color="inherit"
+                        sx={{
+                            fontSize: "25px",
+                            marginTop: "25px",
+                            marginLeft: "20px",
+                            backgroundColor: "#0f0b2c",
+                            color: "white",
+                        }}
+                    >
+                        T-20 Blocks
                     </Button>
                 </Link>
-                <Link color="inherit" to='http://localhost:3000/create-team'>
-                    <Button className="buttonStyle"
-                    color="inherit"
-                    sx={{
-                        marginTop: "25px",
-                        marginLeft: "20px",
-                        backgroundColor: "#0f0b2c",
-                        color: "white",
-                    }}>
+                <Link color="inherit" to="http://localhost:3000/create-team" style={{ marginLeft: "130vh",}}>
+                    <Button
+                        className="buttonStyle"
+                        color="inherit"
+                        sx={{
+                            fontSize: "20px",
+                            marginTop: "25px",
+                            marginLeft: "20px",
+                            backgroundColor: "#0f0b2c",
+                            color: "white",
+                           
+                        }}
+                    >
                         Create Team
                     </Button>
                 </Link>
