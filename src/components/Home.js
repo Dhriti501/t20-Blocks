@@ -1,3 +1,4 @@
+import homeImage from "./img/home.png";
 import React from "react";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -60,7 +61,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="rightContainer">
-                    <Box
+                    {/* <Box
                         sx={{
                         backgroundColor: "white",
                         height: "80vh",
@@ -71,7 +72,10 @@ const Home = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         }}>
-                    </Box>
+                    </Box> */}
+                    <img style={{height: "80vh",
+                        width: "80vh",
+                        marginLeft: "1vh"}} src={homeImage} />
                 </div>
             </div>
         </div>

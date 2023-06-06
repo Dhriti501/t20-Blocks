@@ -5,8 +5,8 @@ body {
 
 .pageStyle {
     background-color: #0f0b2c;
-    min-height: 100vh;
-    padding: 1vh 1vw;
+    min-height: 90vh;
+    /* padding: 1vh 1vw; */
     color: white;
 }
 
@@ -33,9 +33,21 @@ body {
 }
 
 .leftContainer {
-    padding: 70px;
-    margin-top: 80px;
+    padding: 20vh;
+    /* margin-top: 50px; */
 }
+
+.popup-box {
+    margin: 10vh;
+    width: 50vh;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 
 .centered {
     display: flex;
@@ -65,17 +77,16 @@ body {
     padding-top: 20px;
     display: flex;
     /* color: white; */
-    
 }
 
-.players{
+.players {
     background-color: white;
     padding: 50px;
     width: 88vh;
     border-radius: 10px;
 }
 
-.navbar{
+.navbar {
     padding-left: 50px;
     padding-top: 50px;
 }
@@ -89,8 +100,6 @@ body {
     margin-right: 90px;
 }
 
-.CreateTeamListText{
+.CreateTeamListText {
     padding: 30px;
-    
 }
-

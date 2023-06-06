@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import {
     List,
     ListItem,
@@ -11,6 +14,7 @@ import {
     DialogTitle,
     DialogContent,
     DialogActions,
+    Box
 } from "@mui/material";
 import Header from "./header/Header";
 import ipl from "./img/ipl.png";
@@ -37,7 +41,8 @@ const NavBar = ({ activeCategory, onCategoryClick }) => {
                         padding: "20px",
                         marginLeft: "5px",
                         width: "190px",
-                    }}>
+                    }}
+                >
                     {category}
                 </Button>
             ))}
@@ -49,46 +54,216 @@ const NavBar = ({ activeCategory, onCategoryClick }) => {
 const Content = ({ activeCategory }) => {
     const playerMap = {
         batsman: [
-            { name: "Player 1", details: "Player 1 details", rating: 4.5 },
-            { name: "Player 2", details: "Player 2 details", rating: 4.2 },
-            { name: "Player 3", details: "Player 3 details", rating: 4.8 },
-            { name: "Player 4", details: "Player 4 details", rating: 4.3 },
-            { name: "Player 5", details: "Player 5 details", rating: 4.1 },
-            { name: "Player 6", details: "Player 6 details", rating: 4.6 },
-            { name: "Player 7", details: "Player 7 details", rating: 4.4 },
-            { name: "Player 8", details: "Player 8 details", rating: 4.9 },
-            { name: "Player 9", details: "Player 9 details", rating: 4.7 },
+            {
+                name: "Player 1",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.5,
+            },
+            {
+                name: "Player 2",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.2,
+            },
+            {
+                name: "Player 3",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.8,
+            },
+            {
+                name: "Player 4",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.3,
+            },
+            {
+                name: "Player 5",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.1,
+            },
+            {
+                name: "Player 6",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.6,
+            },
+            {
+                name: "Player 7",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.4,
+            },
+            {
+                name: "Player 8",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.9,
+            },
+            {
+                name: "Player 9",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.7,
+            },
         ],
         bowler: [
-            { name: "Player A", details: "Player A details", rating: 4.6 },
-            { name: "Player B", details: "Player B details", rating: 4.4 },
-            { name: "Player C", details: "Player C details", rating: 4.2 },
-            { name: "Player D", details: "Player D details", rating: 4.8 },
-            { name: "Player E", details: "Player E details", rating: 4.7 },
-            { name: "Player F", details: "Player F details", rating: 4.5 },
-            { name: "Player G", details: "Player G details", rating: 4.3 },
-            { name: "Player H", details: "Player H details", rating: 4.1 },
-            { name: "Player I", details: "Player I details", rating: 4.9 },
+            {
+                name: "Player A",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.6,
+            },
+            {
+                name: "Player B",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.4,
+            },
+            {
+                name: "Player C",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.2,
+            },
+            {
+                name: "Player D",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.8,
+            },
+            {
+                name: "Player E",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.7,
+            },
+            {
+                name: "Player F",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.5,
+            },
+            {
+                name: "Player G",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.3,
+            },
+            {
+                name: "Player H",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.1,
+            },
+            {
+                name: "Player I",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.9,
+            },
         ],
         wicketkeeper: [
-            { name: "Player X", details: "Player X details", rating: 4.7 },
-            { name: "Player Y", details: "Player Y details", rating: 4.1 },
-            { name: "Player Z", details: "Player Z details", rating: 4.5 },
-            { name: "Player M", details: "Player M details", rating: 4.3 },
-            { name: "Player N", details: "Player N details", rating: 4.2 },
-            { name: "Player O", details: "Player O details", rating: 4.8 },
-            { name: "Player P", details: "Player P details", rating: 4.6 },
-            { name: "Player Q", details: "Player Q details", rating: 4.4 },
-            { name: "Player R", details: "Player R details", rating: 4.9 },
+            {
+                name: "Player X",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.7,
+            },
+            {
+                name: "Player Y",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.1,
+            },
+            {
+                name: "Player Z",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.5,
+            },
+            {
+                name: "Player M",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.3,
+            },
+            {
+                name: "Player N",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.2,
+            },
+            {
+                name: "Player O",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.8,
+            },
+            {
+                name: "Player P",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.6,
+            },
+            {
+                name: "Player Q",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.4,
+            },
+            {
+                name: "Player R",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.9,
+            },
         ],
         "all rounder": [
-            { name: "Player I", details: "Player I details", rating: 4.3 },
-            { name: "Player II", details: "Player II details", rating: 4.9 },
-            { name: "Player III", details: "Player III details", rating: 4.7 },
-            { name: "Player IV", details: "Player IV details", rating: 4.6 },
-            { name: "Player V", details: "Player V details", rating: 4.4 },
-            { name: "Player VI", details: "Player VI details", rating: 4.8 },
-            { name: "Player VII", details: "Player VII details", rating: 4.5 },
+            {
+                name: "Player I",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.3,
+            },
+            {
+                name: "Player II",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.9,
+            },
+            {
+                name: "Player III",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.7,
+            },
+            {
+                name: "Player IV",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.6,
+            },
+            {
+                name: "Player V",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.4,
+            },
+            {
+                name: "Player VI",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.8,
+            },
+            {
+                name: "Player VII",
+                details:
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                rating: 4.5,
+            },
             {
                 name: "Player VIII",
                 details: "Player VIII details",
@@ -147,7 +322,11 @@ const Content = ({ activeCategory }) => {
     };
 
     const handlePlayerClick = (player) => {
-        setSelectedPlayerDetails(player);
+        const playerWithAvatar = {
+            ...player,
+            avatarUrl: avatarImages[activeCategory][player.name],
+        };
+        setSelectedPlayerDetails(playerWithAvatar);
     };
 
     const handleCloseDetails = () => {
@@ -263,16 +442,54 @@ const Content = ({ activeCategory }) => {
                     </List>
                 </div>
             )}
-
-            <Dialog open={!!selectedPlayerDetails} onClose={handleCloseDetails}>
-                <DialogTitle>{selectedPlayerDetails?.name} Details</DialogTitle>
-                <DialogContent>
-                    <Typography>{selectedPlayerDetails?.details}</Typography>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleCloseDetails}>Close</Button>
-                </DialogActions>
-            </Dialog>
+            <Box>
+                <Dialog
+                    open={!!selectedPlayerDetails}
+                    onClose={handleCloseDetails}
+                >
+                    <DialogTitle
+                        sx={{
+                            fontSize: "30px",
+                            height: "0px",
+                            // paddingTop: "25px",
+                            marginLeft: "200px",
+                        }}
+                    >
+                        {selectedPlayerDetails?.name}
+                    </DialogTitle>
+                    <DialogContent className="popup-box">
+                        <Avatar
+                            sx={{
+                                width: 230,
+                                height: 200,
+                                marginBottom: "20px",
+                            }}
+                            src={selectedPlayerDetails?.avatarUrl}
+                            alt={selectedPlayerDetails?.name}
+                        />
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            sx={{ padding: "10px", margin: "10px",cursor: "default", // Remove cursor
+                            pointerEvents: "none" }}
+                        >
+                            {activeCategory}
+                        </Button>
+                        <Typography sx={{ fontSize: "17px", width: "350px", paddingTop:"10px" }}>
+                            {selectedPlayerDetails?.details}
+                        </Typography>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button
+                            className="popup-button"
+                            onClick={handleCloseDetails}
+                            sx={{ paddingTop: "0px" }}
+                        >
+                            Close
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </Box>
         </div>
     );
 };
