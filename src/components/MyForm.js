@@ -4,38 +4,70 @@ import "./css/style.css";
 import Header from "./header/Header";
 
 const MyForm = () => {
-    const [formData, setFormData] = useState({
-        matches: "",
-        innings: "",
-        runs: "",
-        highScore: "",
-        average: "",
-        ballsFaced: "",
-        strikeRate: "",
-        hundreds: "",
-        fifties: "",
-        fours: "",
-        sixes: "",
-    });
+  
+    const [matches, setMatches] = useState("");
+    const [innings, setInnings] = useState("");
+    const [runs, setRuns] = useState("");
+    const [highScore, setHighScore] = useState("");
+    const [average, setAverage] = useState("");
+    const [ballsFaced, setBallsFaced] = useState("");
+    const [strikeRate, setStrikeRate] = useState("");
+    const [hundreds, setHundreds] = useState("");
+    const [fifties, setFifties] = useState("");
+    const [fours, setFours] = useState("");
+    const [sixes, setSixes] = useState("");
+    const [rating, setRating] = useState("");
 
     const handleChange = (e) => {
+
         const { name, value } = e.target;
-        setFormData((prevData) => {
-            prevData[name] = value;
-            return prevData;
-        });
+
+        
+        console.log(name);
+
+        if (name === "matches")
+            setMatches(value)
+        else if (name === "innings")
+            setInnings(value)
+        else if (name === "runs")
+            setRuns(value)
+        else if (name === "highScore")
+            setHighScore(value)
+        else if (name === "average")
+            setAverage(value)
+        else if (name === "ballsFaced")
+            setBallsFaced(value)
+        else if (name === "strikeRate")
+            setStrikeRate(value)
+        else if (name === "hundreds")
+            setHundreds(value)
+        else if (name === "fifties")
+            setFifties(value)
+        else if (name === "fours")
+            setFours(value)
+        else if (name === "sixes")
+            setSixes(value)
     };
 
     const handleSubmit = (e) => {
+        
         e.preventDefault();
-        console.log(formData);
+        
+        fetch(`http://127.0.0.1:8000/view-team/?matches=${matches}&innings=${innings}&runs=${runs}&highscore=${highScore}&avg=${average}&ballsfaced=${ballsFaced}&strikerate=${strikeRate}&hundreds=${hundreds}&fifties=${fifties}&fours=${fours}&sixes=${sixes}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setShowText(true);
+                setRating(Math.round(data.prediction * 100) / 100)
+
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
     };
 
     const [showText, setShowText] = useState(false);
-
-    const handleClick = () => {
-        setShowText(true);
-    };
 
     return (
         <div>
@@ -50,7 +82,7 @@ const MyForm = () => {
             >
                 <Box sx={{ color: "#008afc", width: "60vh"}}>
                     <h1 style={{ fontSize: "60px" }}>Predicting Rating</h1>
-                    <h1>{showText && <p>Rating:</p>}</h1>
+                    <h1>{showText && <p>Rating:{ rating}</p>}</h1>
                 </Box>
                 <form
                     onSubmit={handleSubmit}
@@ -65,23 +97,24 @@ const MyForm = () => {
                 >
                     <div style={{ display: "flex", padding: "20px" }}>
                         <div style={{ margin: "40px" }}>
-                            <TextField
-                                label="Matches"
-                                name="matches"
-                                value={formData.matches}
-                                onChange={handleChange}
-                                fullWidth
-                                margin="normal"
-                            />
+
                             <TextField
                                 label="Player Name"
                                 fullWidth
                                 margin="normal"
                             />
                             <TextField
+                                label="Matches"
+                                name="matches"
+                                value={matches}
+                                onChange={handleChange}
+                                fullWidth
+                                margin="normal"
+                            />
+                            <TextField
                                 label="Innings"
                                 name="innings"
-                                value={formData.innings}
+                                value={innings}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -89,7 +122,7 @@ const MyForm = () => {
                             <TextField
                                 label="Runs"
                                 name="runs"
-                                value={formData.runs}
+                                value={runs}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -97,7 +130,7 @@ const MyForm = () => {
                             <TextField
                                 label="High Score"
                                 name="highScore"
-                                value={formData.highScore}
+                                value={highScore}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -105,7 +138,7 @@ const MyForm = () => {
                             <TextField
                                 label="Average"
                                 name="average"
-                                value={formData.average}
+                                value={average}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -115,7 +148,7 @@ const MyForm = () => {
                             <TextField
                                 label="Balls Faced"
                                 name="ballsFaced"
-                                value={formData.ballsFaced}
+                                value={ballsFaced}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -123,7 +156,7 @@ const MyForm = () => {
                             <TextField
                                 label="Strike Rate"
                                 name="strikeRate"
-                                value={formData.strikeRate}
+                                value={strikeRate}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -131,7 +164,7 @@ const MyForm = () => {
                             <TextField
                                 label="100 (Count)"
                                 name="hundreds"
-                                value={formData.hundreds}
+                                value={hundreds}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -139,7 +172,7 @@ const MyForm = () => {
                             <TextField
                                 label="50 (Count)"
                                 name="fifties"
-                                value={formData.fifties}
+                                value={fifties}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -147,7 +180,7 @@ const MyForm = () => {
                             <TextField
                                 label="4s"
                                 name="fours"
-                                value={formData.fours}
+                                value={fours}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -155,7 +188,7 @@ const MyForm = () => {
                             <TextField
                                 label="6s"
                                 name="sixes"
-                                value={formData.sixes}
+                                value={sixes}
                                 onChange={handleChange}
                                 fullWidth
                                 margin="normal"
@@ -167,7 +200,7 @@ const MyForm = () => {
                         color="primary"
                         type="submit"
                         sx={{ marginBottom: "20px", marginLeft: "60px" }}
-                        onClick={handleClick}
+                        onClick={handleSubmit}
                     >
                         Submit
                     </Button>
