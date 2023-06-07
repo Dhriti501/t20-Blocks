@@ -18,3 +18,7 @@ t20 is a product of innovation which addresses the need to form optmised IPL tea
 _Client:_ React, Material UI, HTML, CSS
 
 _Server:_ Node.js, Flask
+
+## Link To ML Model:
+https://github.com/shreyans-codes/t20-blocks
+
