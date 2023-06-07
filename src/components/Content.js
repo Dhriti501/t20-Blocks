@@ -109,15 +109,31 @@ const Content = ({ activeCategory, batsmanData }) => {
                 </div>
             }
 
-            <Dialog open={!!selectedPlayerDetails} onClose={handleCloseDetails}>
+            {/* <Dialog open={!!selectedPlayerDetails} onClose={handleCloseDetails}>
                 <DialogTitle>{selectedPlayerDetails} Details</DialogTitle>
                 <DialogContent>
-                    <Typography>{selectedPlayerDetails}</Typography>
+                    <Typography>Name: {selectedPlayerDetails}</Typography>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseDetails}>Close</Button>
                 </DialogActions>
-            </Dialog>
+            </Dialog> */}
+
+            <Dialog open={!!selectedPlayerDetails} onClose={handleCloseDetails}>
+                <DialogTitle>{selectedPlayerDetails} Details</DialogTitle>
+                <DialogContent>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                       
+                     <Avatar src="https://xsgames.co/randomusers/avatar.php?g=male" alt="Avatar" style={{ width: '100px', height: '100px' }} />
+                        <Typography variant="body1" align="center" style={{ width: '300px' }} >
+                Name: {selectedPlayerDetails}
+                        </Typography>
+                        <Typography variant="body1" align="center" style={{ width: '300px' }}>
+                Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra sollicitudin leo nec tristique. Nam eleifend, eros non efficitur mattis, magna diam efficitur ex, at convallis erat lorem semper dui.
+             </Typography>
+                     </div>
+                </DialogContent>
+             </Dialog>
 
         </div>
   )
